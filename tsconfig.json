@@ -1,0 +1,33 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "allowJs": false,
+    "target": "es6",
+    "module": "es6",
+    "declaration": false,
+    "declarationMap": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016"
+    ]
+  },
+  "paths": {
+    "@/*": [
+      "src/*"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/dll/*.js",
+    "src/dll/*.json"
+  ]
+}
