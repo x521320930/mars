@@ -2,7 +2,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const baseWebpackConfig = require('./webpack.base.conf')
-const webpack = require('webpack');
+const webpack = require('webpack')
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
@@ -21,7 +21,8 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[contenthash:8].js'),
-    chunkFilename: utils.assetsPath('js/[name].[contenthash:8]_chunk.js')
+    chunkFilename: utils.assetsPath('js/[name].[contenthash:8]_chunk.js'),
+    publicPath: config.build.assetsPublicPath
   },
   devtool: config.build.devtool,
   plugins: [
@@ -45,15 +46,15 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
     ...utils.htmlPlugins(),
     // 告诉webpack哪些库不参与打包，同时使用时的名称也得变~
     new webpack.DllReferencePlugin({
-      manifest: path.resolve(__dirname, '../src/dll/manifest.json')
+      manifest: path.resolve(__dirname, '../dll/manifest.json')
     }),
     // 将某个文件打包输出去，并在html中自动引入该资源
     new AddAssetHtmlWebpackPlugin({
-      filepath: path.resolve(__dirname, '../src/dll/jquery.js'),
+      filepath: path.resolve(__dirname, '../dll/jquery.js'),
       hash: true,
       outputPath: utils.assetsPath('js'),
-      publicPath: utils.assetsPath('js')
-    }),
+      publicPath: config.build.dllPublicPath
+    })
   ],
   /*
     1. 可以将node_modules中代码单独打包一个chunk最终输出
@@ -79,7 +80,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
           priority: -10,
           name: 'vendor'
         },
-        default: {
+        common: {
           // 要提取的chunk最少被引用2次
           minChunks: 2,
           // 优先级

@@ -16,14 +16,14 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: resolve(__dirname, '../src/dll'),
-    library: '[name]_[hash:10]' // 打包的库里面向外暴露出去的内容叫什么名字
+    path: resolve(__dirname, '../dll'),
+    library: '[name]' // 打包的库里面向外暴露出去的内容叫什么名字
   },
   plugins: [
     // 打包生成一个 manifest.json --> 提供和jquery映射
     new webpack.DllPlugin({
-      name: '[name]_[hash:10]', // 映射库的暴露的内容名称
-      path: resolve(__dirname, '../src/dll/manifest.json') // 输出文件路径
+      name: '[name]', // 映射库的暴露的内容名称
+      path: resolve(__dirname, '../dll/manifest.json') // 输出文件路径
     })
   ],
   mode: 'production'

@@ -27,7 +27,8 @@
   ],
   "exclude": [
     "node_modules",
-    "src/dll/*.js",
-    "src/dll/*.json"
+    "dll/*.js",
+    "dll/*.json",
+    "postcss.config.js"
   ]
 }

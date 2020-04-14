@@ -120,7 +120,6 @@ exports.htmlPlugins = function () {
     }
     templates.push(new HtmlWebpackPlugin(html))
   })
-
   return templates
 }
 

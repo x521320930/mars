@@ -22,7 +22,7 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'eslint-loader',
         // 排除node_modules下的js文件
-        exclude: [/node_modules/, resolve(__dirname, '../src/dll')],
+        exclude: [/node_modules/],
         // 只检查 src 下的文件
         include: [resolve(__dirname, '../src')],
         // 优先执行
@@ -61,7 +61,7 @@ module.exports = {
           fallback: {
             loader: 'file-loader',
             options: {
-              name: utils.assetsPath('imgs/[name].[contenthash:8].[ext]')
+              name: utils.assetsPath('imgs/[name].[hash:8].[ext]')
             }
           }
         }
@@ -70,12 +70,12 @@ module.exports = {
         test: /\.(svg)(\?.*)?$/,
         loader: 'file-loader',
         options: {
-          name: utils.assetsPath('fonts/[name].[contenthash:8].[ext]')
+          name: utils.assetsPath('fonts/[name].[hash:8].[ext]')
         }
       },
       {
         test: /\.html$/,
-        loader: 'html-loader'
+        use: ['html-loader']
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -85,7 +85,7 @@ module.exports = {
           fallback: {
             loader: 'file-loader',
             options: {
-              name: utils.assetsPath('fonts/[name].[contenthash:8].[ext]')
+              name: utils.assetsPath('fonts/[name].[hash:8].[ext]')
             }
           }
         }
@@ -98,7 +98,7 @@ module.exports = {
           fallback: {
             loader: 'file-loader',
             options: {
-              name: utils.assetsPath('media/[name].[contenthash:8].[ext]')
+              name: utils.assetsPath('media/[name].[hash:8].[ext]')
             }
           }
         }

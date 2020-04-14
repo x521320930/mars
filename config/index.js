@@ -12,13 +12,15 @@ module.exports = {
     useEslint: true,
     devtool: 'cheap-module-eval-source-map',
     cssSourceMap: false,
-    open: false
+    open: false,
+    dllPublicPath: './static/js'
   },
   
   build: {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
+    dllPublicPath: './static/js'
   }
 }
