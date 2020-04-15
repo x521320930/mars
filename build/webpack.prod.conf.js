@@ -11,8 +11,6 @@ const DotenvWebpack = require('dotenv-webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 
-process.env.NODE_ENV = process.argv[2]
-
 const prodWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
   module: {

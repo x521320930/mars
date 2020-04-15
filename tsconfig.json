@@ -14,12 +14,12 @@
       "dom",
       "es2015",
       "es2016"
-    ]
-  },
-  "paths": {
-    "@/*": [
-      "src/*"
-    ]
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts",
@@ -29,6 +29,7 @@
     "node_modules",
     "dll/*.js",
     "dll/*.json",
-    "postcss.config.js"
+    "postcss.config.js",
+    "cli-service/**"
   ]
 }

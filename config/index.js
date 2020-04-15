@@ -13,7 +13,10 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     cssSourceMap: false,
     open: false,
-    dllPublicPath: './static/js'
+    dllPublicPath: './static/js',
+    before: (app) => {
+      // console.log(app)
+    }
   },
   
   build: {

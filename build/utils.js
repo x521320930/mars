@@ -5,8 +5,6 @@ const glob = require('glob')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// const dotenv = require('dotenv')
-// const dotenvExpand = require('dotenv-expand')
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV !== 'development'
@@ -122,21 +120,3 @@ exports.htmlPlugins = function () {
   })
   return templates
 }
-
-// 处理全局配置变量
-// exports.loadEnv = function (mode) {
-//   const basePath = path.resolve(__dirname, `../.env${mode ? `.${mode}` : ``}`)
-
-//   const load = envPath => {
-//     try {
-//       const env = dotenv.config({ path: envPath, debug: process.env.DEBUG })
-//       dotenvExpand(env)
-//       console.log(envPath, env)
-//     } catch (err) {
-//       if (err.toString().indexOf('ENOENT') < 0) {
-//         console.log(err)
-//       }
-//     }
-//   }
-//   load(basePath)
-// }

@@ -5,7 +5,6 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const config = require('../config')
 const DotenvWebpack = require('dotenv-webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-process.env.NODE_ENV = 'development'
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
@@ -32,10 +31,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     // 启动gzip压缩
     compress: true,
-    // 端口号
-    port: 8088,
-    // 域名
-    host: 'localhost',
     // 自动打开浏览器
     open: config.dev.open,
     // 开启HMR功能
@@ -51,7 +46,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     // 代理
     proxy: config.dev.proxyTable,
-    historyApiFallback: true
+    historyApiFallback: true,
+    before: config.dev.before
   },
   plugins: [
     new DotenvWebpack({

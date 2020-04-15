@@ -19,7 +19,7 @@ module.exports = {
   ],
   extends: [
     'plugin:@typescript-eslint/recommended',
-    'airbnb-base'
+    'standard'
   ],
   rules: {
     "no-console": "off",
@@ -29,6 +29,10 @@ module.exports = {
     "import/no-unresolved": "off",
     "no-underscore-dangle": ["error", { "allow": ["_this"] }],
     "@typescript-eslint/no-inferrable-types": "off",
-    "@typescript-eslint/no-this-alias": "off"
+    "@typescript-eslint/no-this-alias": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/camelcase": "off",
+    "camelcase": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   }
 }
