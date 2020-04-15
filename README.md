@@ -54,4 +54,22 @@
     contenthash: 根据文件的内容生成hash值。不同文件hash值一定不一样    
     --> 让代码上线运行缓存更好使用文件缓存
 
-  
+
+
+# postcss-pxtorem
+1. `rootValue` （Number）根元素字体大小。
+2. `unitPrecision` （Number）允许REM单位增长的十进制数。
+3. `propList` （Array）可以从px更改为rem的属性。
+   - 值必须完全匹配。
+   - 使用通配符`*`匹配所有属性。例：`['*']`
+   - `*`在单词的开头或结尾使用。（ `['*position*']` 会匹配background-position-y）
+   - `!`用于不匹配这个属性。例：`['*', '!letter-spacing']`，除了不会转换`letter-spacing`的px为rem，其他的都会转换。
+   - 将`！`前缀与其他前缀组合在一起。例：`['*', '!font*']`
+4. `selectorBlackList` （Array）要忽略的选择器并保留为px。
+   - 如果value是string，则检查selector是否包含字符串。
+   - `['body'] `会匹配 `.body-class`
+   - 如果value是regexp，它会检查选择器是否与正则表达式匹配。
+   - `[/^body$/]`会匹配`body`但不会`.body`。
+5. `replace` （Booleam）替换包含rems的规则，而不是添加回退。
+6. `mediaQuery` （Booleam）允许在媒体查询中转换px。
+7. `minPixelValue` （Number）设置要替换的最小像素值。
