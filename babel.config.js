@@ -16,8 +16,8 @@ module.exports = {
           ie: '11',
           safari: '10',
           edge: '17',
-        },
-      },
-    ],
-  ],
+        }
+      }
+    ]
+  ]
 };
