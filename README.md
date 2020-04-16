@@ -73,3 +73,11 @@
 5. `replace` （Booleam）替换包含rems的规则，而不是添加回退。
 6. `mediaQuery` （Booleam）允许在媒体查询中转换px。
 7. `minPixelValue` （Number）设置要替换的最小像素值。
+
+
+
+
+# multipage 脚本
+ > - 当多页很多的情况，每次构建会比较耗时。为了解决开发时，没有必要构建其他页面 特此增加的脚本
+ > - npm run page 会在 build 下生成一个 multipage.js 文件
+ > - 可以在 multipage.js 删除掉，不进行开发的文件名

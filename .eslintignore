@@ -5,3 +5,4 @@ dll
 cli-service/**
 babel.config.js
 postcss.config.js
+lib/*

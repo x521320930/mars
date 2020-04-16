@@ -5,7 +5,7 @@ const glob = require('glob')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
+const page = require('./multipage')
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV !== 'development'
     ? config.build.assetsSubDirectory
@@ -82,8 +82,15 @@ exports.entries = function () {
   const map = {}
 
   PAGE_FILES.forEach((filePath) => {
-    const filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf(''))
-    map[filename] = filePath + '/main.ts'
+    const filename = filePath.substring(filePath.lastIndexOf('/') + 1)
+
+    if (process.env.NODE_ENV == 'development') {
+
+      if (page.multipage.includes(filename)) map[filename] = filePath + '/main.ts'
+    } else {
+
+      map[filename] = filePath + '/main.ts'
+    }
   })
 
   return map
@@ -96,7 +103,7 @@ exports.htmlPlugins = function () {
   const templates = []
 
   PAGE_FILES.forEach((filePath) => {
-    const filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf(''))
+    const filename = filePath.substring(filePath.lastIndexOf('/') + 1)
     let html = {
       // 模板来源
       template: `${filePath}/index.html`,
@@ -116,7 +123,11 @@ exports.htmlPlugins = function () {
         chunksSortMode: 'dependency'
       })
     }
-    templates.push(new HtmlWebpackPlugin(html))
+    if (process.env.NODE_ENV == 'development') {
+      if (page.multipage.includes(filename)) templates.push(new HtmlWebpackPlugin(html))
+    } else {
+      templates.push(new HtmlWebpackPlugin(html))
+    }
   })
   return templates
 }

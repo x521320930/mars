@@ -7,7 +7,8 @@
     "dev": "cross-env NODE_ENV=development && node build/Server.js",
     "dll": "webpack --config build/webpack.dll.conf.js",
     "build:test": "cross-env NODE_ENV=test && node build/build.js ",
-    "build:prod": "cross-env NODE_ENV=production && node build/build.js"
+    "build:prod": "cross-env NODE_ENV=production && node build/build.js",
+    "page": "node lib/script/multipage.js"
   },
   "keywords": [
     "webpack4",
