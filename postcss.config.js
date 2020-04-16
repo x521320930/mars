@@ -9,7 +9,7 @@ module.exports = {
       utf8: false
     },
     'postcss-pxtorem':{
-      rootValue: 37.5,
+      rootValue: 100,
       unitPrecision: 3,
       propList: ['*']
     },
